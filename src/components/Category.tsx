@@ -1,10 +1,10 @@
 interface Props {
   catg: (selectedCategory: string) => void;
-  defaultVal: string;
+  defaultCategory: string;
   categories: string[];
 }
 
-function Category({ defaultVal, catg, categories }: Props) {
+function Category({ defaultCategory, catg, categories }: Props) {
   const handleCategoryChange = (
     event: React.ChangeEvent<HTMLSelectElement>
   ) => {
@@ -14,21 +14,18 @@ function Category({ defaultVal, catg, categories }: Props) {
   return (
     <div>
       <select
-        className='form-select form-select-sm'
+        id='catg'
+        className='form-select'
         aria-label='Small select example'
-        defaultValue={defaultVal}
+        defaultValue={defaultCategory}
         onChange={handleCategoryChange}
       >
+        <option value=''>All categories</option>
         {categories.map(ctg => (
           <option value={ctg} key={ctg}>
             {ctg}
           </option>
         ))}
-        {/* <option defaultValue={'All categories'} value='All categories'>
-          All categorie
-        </option>
-        <option value='Utilities'>Utilities</option>
-        <option value='Entertainment'>Entertainment</option> */}
       </select>
     </div>
   );

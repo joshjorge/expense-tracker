@@ -3,7 +3,7 @@ interface Props {
   type: string;
   placeholder: string;
   min?: string;
-  reg: any;
+  reg?: {};
   sel?: string;
   errors?: any;
 }
@@ -13,7 +13,7 @@ const Input = ({
   type,
   placeholder,
   reg,
-  sel = '',
+  sel = 'Select Category',
   errors,
   min,
 }: Props) => {
@@ -46,7 +46,7 @@ const Input = ({
             className='form-select form-select-sm'
             aria-label='Small select example'
           >
-            <option>{sel}</option>
+            <option value=''>{sel}</option>
             <option value='Groceries'>Groceries</option>
             <option value='Utilities'>Utilities</option>
             <option value='Entertainment'>Entertainment</option>

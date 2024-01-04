@@ -1,13 +1,15 @@
 import { formData } from '../App';
+import Button from './Button';
 
 interface Props {
   headData: string[];
   data: formData[];
   onDelete: (itm: formData) => void;
+  onEdit: (itm: formData) => void;
   total: number;
 }
 
-function Table({ data, headData, onDelete, total }: Props) {
+function Table({ data, headData, onDelete, onEdit, total }: Props) {
   let txt =
     data.length > 0 ? (
       <p className='text-success'>You got {data.length} items</p>
@@ -32,15 +34,20 @@ function Table({ data, headData, onDelete, total }: Props) {
             <tr key={data.indexOf(dt)}>
               <td>{data.indexOf(dt) + 1}</td>
               <td>{dt.description}</td>
-              <td>{dt.amount}</td>
+              <td>${dt.amount}</td>
               <td>{dt.category}</td>
               <td>
-                <button
-                  onClick={() => onDelete(dt)}
-                  className='btn btn-danger sm'
-                >
-                  Delete
-                </button>
+                <Button
+                  onAction={() => onEdit(dt)}
+                  clss='btn btn-info me-2 sm'
+                  label='Edit'
+                  tp='button'
+                />
+                <Button
+                  onAction={() => onDelete(dt)}
+                  clss='btn btn-danger sm'
+                  label='Delete'
+                />
               </td>
             </tr>
           ))}

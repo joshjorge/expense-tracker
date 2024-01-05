@@ -34,10 +34,13 @@ function ModalForm({ closeModal, dsply }: Props) {
   if (!dsply) return null;
 
   return (
-    <div className={modalContainer}>
+    <div className='container-fluid position-absolute h-100 p-0'>
       <div className={modal}>
         <h3>Update item</h3>
-        <form className='inputContainer' onSubmit={handleSubmit(onSubmit)}>
+        <form
+          className='inputContainer container bg-white pt-5'
+          onSubmit={handleSubmit(onSubmit)}
+        >
           <Input
             reg={{ ...register('description') }}
             label='Description'
@@ -60,16 +63,17 @@ function ModalForm({ closeModal, dsply }: Props) {
             placeholder='item category'
             errors={errors.category}
           />
-          <div className='footer'>
+          <div className='footer float-end w-75 d-flex justify-content-end'>
             <Button
               label='Update'
-              clss='btn btn-success btn-sm mt-2 mb-2'
+              clss='btn btn-success btn-sm mt-2 mb-2 me-3 w-50
+              '
               tp='submit'
               disabled={!isValid}
             />
             <Button
               label='Cancel'
-              clss='btn btn-danger btn-sm mt-2 mb-2'
+              clss='btn btn-danger btn-sm mt-2 mb-2 w-25'
               tp='button'
               onAction={closeModal}
             />

@@ -21,7 +21,7 @@ const Input = ({
     <>
       {type === 'number' || type === 'text' ? (
         <div className='mb-3'>
-          <label htmlFor={label} className='form-label'>
+          <label htmlFor={label} className='form-label fw-bold'>
             {label}
           </label>
           {errors && <p className='text-danger'>{errors.message}</p>}
@@ -36,7 +36,7 @@ const Input = ({
         </div>
       ) : (
         <div>
-          <label htmlFor={label} className='form-label'>
+          <label htmlFor={label} className='form-label fw-bold'>
             {label}
           </label>
           {errors && <p className='text-danger'>{errors.message}</p>}
